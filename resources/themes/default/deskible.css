@@ -1,0 +1,641 @@
+.deskible-viewport {
+	margin: 0;
+	padding: 0;
+	font-size: 13px;
+	width: 100%;
+	height: 100%;
+}
+
+.deskible-viewport .deskible-desktop {
+	width: 100%;
+	height: 100%;
+}
+
+.deskible-viewport .deskible-desktop .deskible-wallpaper {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+/* Notifications Start */
+#deskible-notifications {
+	top: 0;
+	right: 0;
+}
+
+.deskible-notification {
+	position: relative;
+	right: -400px;
+	width: 300px;
+	padding: 15px;
+	padding-left: 55px;
+	margin: 15px;
+	opacity: 0.85;
+	filter: alpha(opacity=85);
+	border-radius: 4px;
+	-ms-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border: 3px solid transparent;
+	-moz-box-shadow: #888 0 0 6px;
+	-webkit-box-shadow: #888 0 0 6px;
+	box-shadow: #888 0 0 6px;
+}
+
+.deskible-notification i {
+	position: absolute;
+	top: 15px;
+	left: 15px;
+}
+
+.deskible-notification.deskible-notification-notice {
+	color: #ffffff;
+	background: #2ecc71;
+	border-color: #0a7035;
+}
+
+.deskible-notification.deskible-notification-warning {
+	color: #ffffff;
+	background: #f39c12;
+	border-color: #8f5b0e;
+}
+
+.deskible-notification.deskible-notification-error {
+	color: #FFF;
+	background: #c0392b;
+	border-color: #80140a;
+}
+/* Notifications End */
+
+/* Taskbar Start */
+.deskible-viewport .deskible-taskbar {
+	position: absolute;
+	border-color: silver;
+	border-width: 1px;
+	background-image: none;
+	background-color: white;
+	font-size: 1em;
+	border-style: solid;
+}
+
+.deskible-viewport .deskible-taskbar.deskible-taskbar-bottom,
+.deskible-viewport .deskible-taskbar.deskible-taskbar-top {
+	width: 100%;
+	height: 44px;
+	padding: 6px 0 6px 8px;
+	right: 0;
+	left: 0;
+}
+
+.deskible-viewport .deskible-taskbar.deskible-taskbar-bottom {
+	bottom: 0;
+}
+
+.deskible-viewport .deskible-taskbar.deskible-taskbar-top {
+	top: 0;
+}
+
+.deskible-viewport .deskible-taskbar.deskible-taskbar-right,
+.deskible-viewport .deskible-taskbar.deskible-taskbar-left {
+	width: 88px;
+	height: 100%;
+	padding: 0 6px 8px 6px;
+	top: 0;
+	bottom: 0;
+}
+
+.deskible-viewport .deskible-taskbar.deskible-taskbar-top .deskible-taskbar-inner > div,
+.deskible-viewport .deskible-taskbar.deskible-taskbar-bottom .deskible-taskbar-inner > div {
+	height: 30px;
+}
+
+.deskible-viewport .deskible-taskbar.deskible-taskbar-left .deskible-taskbar-inner > div,
+.deskible-viewport .deskible-taskbar.deskible-taskbar-right .deskible-taskbar-inner > div {
+	width: 80px;
+}
+
+.deskible-viewport .deskible-taskbar.deskible-taskbar-top .deskible-taskbar-inner .deskible-taskbar-divider,
+.deskible-viewport .deskible-taskbar.deskible-taskbar-bottom .deskible-taskbar-inner .deskible-taskbar-divider {
+	margin: 0 8px 0 0;
+	height: 30px;
+	border-style: solid;
+	border-width: 0 0 0 1px;
+	border-left-color: #e1e1e1;
+	border-right-color: white;
+}
+
+.deskible-viewport .deskible-taskbar .deskible-taskbar-inner .deskible-taskbar-divider {
+	font-size: 1px;
+	overflow: hidden;
+	cursor: default;
+	border: 0;
+	width: 0;
+	height: 0;
+	line-height: 0;
+}
+
+.deskible-viewport .deskible-taskbar.deskible-taskbar-right .deskible-taskbar-inner .deskible-taskbar-divider,
+.deskible-viewport .deskible-taskbar.deskible-taskbar-left .deskible-taskbar-inner .deskible-taskbar-divider {
+}
+
+.deskible-viewport .deskible-taskbar .deskible-taskbar-inner .deskible-taskbar-startbutton {
+	white-space: nowrap;
+	padding-right: 10px;
+}
+
+.deskible-viewport .deskible-taskbar .deskible-taskbar-inner .deskible-taskbar-dock {
+	width: 100%;
+}
+
+.deskible-viewport .deskible-taskbar .deskible-taskbar-inner .deskible-taskbar-tasks {
+	border-width: 0;
+	min-width: 80px;
+	width: 80px;
+	margin: 0;
+	padding: 8px 25px;
+	right: 0;
+	top: 0;
+	white-space: nowrap;
+}
+
+.deskible-task {
+	width: 140px;
+	max-width: 140px;
+}
+/* Taskbar End */
+
+/* Menus Common Start */
+.deskible-menu {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #e1e1e1;
+	background-image: none;
+	background-color: white;
+	box-shadow: #888 0 0 6px;
+	-moz-box-shadow: #888 0 0 6px;
+	-webkit-box-shadow: #888 0 0 6px;
+}
+/* Menus Common End */
+
+/* Menu Start */
+.deskible-startmenu-header {
+	background-image: none;
+	background-color: #3b83c0;
+	padding: 10px;
+}
+
+.deskible-startmenu-menu {
+	border-right: 1px solid #e1e1e1;
+}
+
+.deskible-startmenu-menu i,
+.deskible-startmenu-sub i {
+	color: #bbb;
+}
+
+.deskible-startmenu-toolbar {
+	padding: 10px;
+}
+
+.deskible-startmenu-toolbar-space {
+	margin: 3px 0;
+}
+
+.deskible-startmenu-toolbar-separator {
+	margin: 6px 10px;
+	border-style: solid none;
+	border-width: 1px 0 0;
+	border-top-color: #e1e1e1;
+	border-bottom-color: white;
+}
+
+.deskible-startmenu-usericon {
+	color: #7fa7eb;
+}
+
+.deskible-startmenu-userlabel {
+	color: white;
+}
+
+.deskible-startmenu-item {
+	padding: 3px 0 3px 3px;
+}
+
+.deskible-startmenu-item > span {
+	display: inline-block;
+	max-width: 158px;
+	width: 158px;
+}
+
+.deskible-startmenu-subitem {
+	padding: 3px 25px 3px 3px;
+}
+
+.deskible-startmenu-item:hover,
+.deskible-startmenu-subitem:hover {
+	background-color: #d6e8f6;
+}
+/* Menu End */
+
+/* Windows Start */
+.deskible-window {
+	background: #3b83c0;
+	maring: 2px;
+	padding: 5px;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	box-shadow: #888 0 0 6px;
+	-moz-box-shadow: #888 0 0 6px;
+	-webkit-box-shadow: #888 0 0 6px;
+}
+
+.deskible-window-handle {
+	padding-top: 3px;
+	padding-bottom: 8px;
+	color: white;
+	background: #3b83c0;
+}
+
+.deskible-window-handle span {
+	font-weight: bold;
+}
+
+.deskible-window-icon {
+	color: #7fa7eb;
+}
+
+.deskible-window-controls .button {
+	background-color: #7fa7eb;
+	color: #3b83c0;
+	font-size: 0.8rem !important;
+	padding: 0.25em !important;
+}
+
+.deskible-window-controls .button.deskible-window-minimize i.icon {
+	position: relative;
+	top: 3px;
+}
+
+.deskible-window-controls .button:hover {
+	background-color: #a5bbfa;
+	color: #3b83c0;
+}
+
+.deskible-window-pane {
+	background: white;
+	min-width: 200px;
+	min-height: 200px;
+}
+
+.deskible-window-content {
+	padding: 5px;
+}
+/* Windows End */
+
+/* Date and Time Start */
+.deskible-datetime-fulldate {
+	text-align: center;
+	padding: 15px;
+	cursor: pointer;
+	color: #3b83c0;
+}
+
+#deskible-clock {
+	width: 150px;
+	height: 150px;
+	margin: auto auto;
+	background: url(images/clock/face.png);
+	background-size: 150px 150px;
+	margin-bottom: 30px;
+}
+
+#deskible-sec, #deskible-min, #deskible-hour {
+	width: 150px;
+	height: 150px;
+	top: 0;
+	left: 0;
+}
+
+#deskible-sec {
+	background: url(images/clock/secondhand.png);
+	background-size: 150px 150px;
+}
+   
+#deskible-min {
+	background: url(images/clock/minutehand.png);
+	background-size: 150px 150px;
+}
+   
+#deskible-hour {
+	background: url(images/clock/hourhand.png);
+	background-size: 150px 150px;
+}
+
+#deskible-time {
+	position: absolute;
+	top: 150px;
+	left: 0;
+	width: 150px;
+	padding: 10px;
+	text-align: center;
+}
+
+.deskible-datetime-pane {
+	display: inline-block;
+	padding: 5px;
+}
+
+div.datepicker {
+	position: relative;
+	width: 225px;
+	height: 180px;
+	position: absolute;
+	cursor: default;
+	top: 0;
+	left: 0;
+	display: none;
+	color: #000;
+}
+.datepickerContainer {
+	position: absolute;
+	top: 0;
+	left: 10px;
+}
+.datepickerBorderT {
+	position: absolute;
+	left: 10px;
+	top: 0;
+}
+.datepickerBorderB {
+	position: absolute;
+	left: 10px;
+	bottom: 0;
+	right: 10px;
+	height: 10px;
+}
+.datepickerBorderL {
+	position: absolute;
+	left: 0;
+	bottom: 10px;
+	top: 10px;
+	width: 10px;
+}
+.datepickerBorderR {
+	position: absolute;
+	right: 0;
+	bottom: 10px;
+	top: 10px;
+	width: 10px;
+}
+.datepickerBorderTL {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.datepickerBorderTR {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.datepickerBorderBL {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 10px;
+	height: 10px;
+}
+.datepickerBorderBR {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 10px;
+	height: 10px;
+}
+.datepickerHidden {
+	display: none;
+}
+div.datepicker table {
+	border-collapse:collapse;
+}
+div.datepicker a {
+	color: #000;
+	text-decoration: none;
+	cursor: default;
+	outline: none;
+}
+div.datepicker table td,
+div.datepicker table th {
+	text-align: right;
+	padding: 2px;
+	margin: 0;
+}
+div.datepicker th {
+	font-weight: bold;
+}
+div.datepicker tbody a {
+	display: block;
+}
+.datepickerDays a {
+	width: 20px;
+	line-height: 16px;
+	height: 16px;
+	padding-right: 2px;
+}
+.datepickerYears a,
+.datepickerMonths a{
+	width: 44px;
+	line-height: 36px;
+	height: 36px;
+	text-align: center;
+}
+td.datepickerNotInMonth a {
+	color: #999;
+}
+tbody.datepickerDays td.datepickerSelected{
+	background: #afcce6;
+	border: 2px solid #136A9F;
+	color: #136A9F;
+}
+tbody.datepickerDays td.datepickerNotInMonth.datepickerSelected {
+	background: #17384d;
+}
+tbody.datepickerYears td.datepickerSelected,
+tbody.datepickerMonths td.datepickerSelected{
+	background: #17384d;
+}
+div.datepicker a:hover,
+div.datepicker a:hover {
+	color: #000;
+}
+div.datepicker td.datepickerNotInMonth a:hover {
+	color: #999;
+}
+.datepickerSpace div {
+	width: 20px;
+}
+.datepickerGoNext a,
+.datepickerGoPrev a,
+.datepickerMonth a {
+	text-align: center;
+	height: 20px;
+	line-height: 20px;
+	cursor: pointer !important;
+}
+.datepickerGoNext a {
+	float: right;
+	width: 20px;
+	font-size: 0.6em;
+}
+.datepickerGoPrev a {
+	float: left;
+	width: 20px;
+	font-size: 0.6em;
+}
+table.datepickerViewDays tbody.datepickerMonths,
+table.datepickerViewDays tbody.datepickerYears {
+	display: none;
+}
+table.datepickerViewMonths tbody.datepickerDays,
+table.datepickerViewMonths tbody.datepickerYears,
+table.datepickerViewMonths tr.datepickerDoW {
+	display: none;
+}
+table.datepickerViewYears tbody.datepickerDays,
+table.datepickerViewYears tbody.datepickerMonths,
+table.datepickerViewYears tr.datepickerDoW {
+	display: none;
+}
+td.datepickerDisabled a,
+td.datepickerDisabled.datepickerNotInMonth a{
+	color: #333;
+}
+td.datepickerDisabled a:hover {
+	color: #333;
+}
+td.datepickerSpecial a {
+	background: #700;
+}
+td.datepickerSpecial.datepickerSelected a {
+	background: #a00;
+}
+/* Date and Time End */
+
+/* Contextual Menus Start */
+.deskible-contextualmenu {
+	padding: 5px 0;
+}
+
+.deskible-contextualmenu li {
+	min-width: 120px;
+	white-space: nowrap;
+	cursor: pointer;
+	padding: 3px 20px 3px 5px;
+}
+
+.deskible-contextualmenu li i,
+.deskible-contextualmenu li.deskible-contextualmenu-disabled {
+	color: #bbb;
+}
+
+.deskible-contextualmenu li:not(.deskible-contextualmenu-disabled):hover {
+	background-color: #d6e8f6;
+}
+
+.deskible-contextualmenu-separator {
+	width: 90%;
+	border: 0;
+	height: 0;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+/* Contextual Menus End */
+
+/* Tabs Start */
+.deskible-window-tabs {
+	border-bottom: 5px solid #add2ed;
+	padding-top: 5px;
+}
+
+.deskible-window-tabs li {
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px;
+	margin-left: 3px;
+	color: #fff;
+	font-weight: bold;
+	background-color: #3b83c0;
+	border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
+	-moz-border-radius-topright: 4px;
+	-moz-border-radius-topleft: 4px;
+	-webkit-border-top-right-radius: 4px;
+	-webkit-border-top-left-radius: 4px;
+}
+
+.deskible-window-tabs li:not(.deskible-tab-active):hover {
+	background-color: #5c98cb;
+}
+
+.deskible-window-tabs li.deskible-tab-active {
+	background-color: #add2ed;
+	color: #3b83c0;
+}
+/* Tabs End */
+
+/* Forms Start */
+.deskible-form {
+	padding-bottom: 50px;
+}
+
+.deskible-form-item {
+	padding: 2px;
+}
+
+.deskible-form-item label {
+	margin: auto 0;
+	padding-right: 5px;
+	width: 100px;
+	text-align: right;
+	font-weight: bold;
+}
+
+.deskible-form-controls {
+	position: absolute;
+	bottom: 0;
+	padding: 10px;
+	left: 0;
+	background: #d4e4f1;
+	width: 100%;
+	text-align: right;
+}
+/* Forms End */
+
+/* imagePicker Start */
+.deskible-imagePicker {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #d8d8d8;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+.deskible-imagePicker div {
+	width: 178px;
+	height: 100px;
+	border: 4px solid #ffffff;
+	margin-left: 10px;
+}
+
+.deskible-imagePicker div:first {
+	margin-left: 0;
+}
+
+.deskible-imagePicker div:not(.deskible-image-active):hover {
+	border-color: #5c98cb;
+}
+.deskible-imagePicker div.deskible-image-active {
+	border-color: #c0131a;
+}
+/* imagePicker End */

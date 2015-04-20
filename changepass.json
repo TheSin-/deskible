@@ -1,0 +1,4 @@
+{
+	"type": "warning",
+	"notification": "This should be an ajax call to update the user database, this is just an exmaple."
+}

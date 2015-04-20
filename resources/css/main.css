@@ -1,0 +1,391 @@
+@import url('../../plugins/semantic-ui/dist/semantic.min.css');
+@import url('../../plugins/animate.css/animate.min.css');
+@import url('../../plugins/colorpicker/css/colorpicker.css');
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	line-height: 1em;
+}
+
+*:focus {
+	outline: none !important;
+}
+
+.ui.button:focus {
+	box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+}
+
+/* Logo Start */
+#deskible-poweredby {
+	position: absolute;
+	bottom: 50px;
+	right: 10px;
+	z-index: 15000;
+    
+	/* IE 5-7 */
+	filter: alpha(opacity=90);
+	/* Netscape */
+	-moz-opacity: 0.9;
+	/* Safari 1.x */
+	-khtml-opacity: 0.9;
+	-webkit-opacity: 0.9;
+	/* Good browsers */
+	opacity: 0.9;
+}
+
+#deskible-poweredby div {
+	position: relative;
+	width: 320px;
+}
+/* Logo End*/
+
+/* Notifications Start */
+#deskible-notifications {
+	position: absolute;
+	z-index: 16777270;
+}
+
+.deskible-notification {
+	cursor: pointer;
+	position: relative;
+}
+
+.deskible-notification > div {
+	display: inline-block;
+}
+/* Notifications End */
+
+/* Taskbar Start */
+.deskible-taskbar {
+	z-index: 16777270;
+}
+
+.deskible-viewport .deskible-taskbar .deskible-taskbar-tasks {
+	cursor: default;
+}
+
+.deskible-viewport .deskible-taskbar.deskible-taskbar-right {
+	right: 0;
+}
+
+.deskible-viewport .deskible-taskbar.deskible-taskbar-left {
+	left: 0;
+}
+
+.deskible-viewport .deskible-taskbar .deskible-taskbar-inner {
+	display: table;
+	vertical-align: top;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	left: 0;
+	top: 0;
+}
+
+.deskible-viewport .deskible-taskbar .deskible-taskbar-inner div {
+	position: relative;
+}
+
+.deskible-viewport .deskible-taskbar.deskible-taskbar-top .deskible-taskbar-inner > div,
+.deskible-viewport .deskible-taskbar.deskible-taskbar-bottom .deskible-taskbar-inner > div {
+	display: table-cell;
+	vertical-align: top;
+}
+
+.deskible-viewport .deskible-taskbar.deskible-taskbar-top .deskible-taskbar-inner > div div,
+.deskible-viewport .deskible-taskbar.deskible-taskbar-bottom .deskible-taskbar-inner > div div {
+	display: inline-block;
+}
+
+.deskible-viewport .deskible-taskbar.deskible-taskbar-top .deskible-taskbar-inner .deskible-taskbar-dock-tasks,
+.deskible-viewport .deskible-taskbar.deskible-taskbar-bottom .deskible-taskbar-inner .deskible-taskbar-dock-tasks {
+	width: 100%;
+	padding: 0 2.25em;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.deskible-viewport .deskible-taskbar.deskible-taskbar-top .deskible-taskbar-inner .deskible-taskbar-dock-scroll-prev,
+.deskible-viewport .deskible-taskbar.deskible-taskbar-bottom .deskible-taskbar-inner .deskible-taskbar-dock-scroll-prev {
+	position: absolute;
+	left: 4px;
+	top: 8px;
+}
+
+.deskible-viewport .deskible-taskbar.deskible-taskbar-top .deskible-taskbar-inner .deskible-taskbar-dock-scroll-next,
+.deskible-viewport .deskible-taskbar.deskible-taskbar-bottom .deskible-taskbar-inner .deskible-taskbar-dock-scroll-next {
+	position: absolute;
+	right: 4px;
+	top: 8px;
+}
+
+.deskible-viewport .deskible-taskbar.deskible-taskbar-left .deskible-taskbar-inner div,
+.deskible-viewport .deskible-taskbar.deskible-taskbar-right .deskible-taskbar-inner div {
+	display: block;
+}
+
+.deskible-viewport .deskible-taskbar .deskible-taskbar-inner .deskible-taskbar-dock .deskible-taskbar-dock-tasks .deskible-task {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	padding-left: 2em !important;
+	padding-right: 1.25em !important;
+}
+
+.deskible-viewport .deskible-taskbar .deskible-taskbar-inner .deskible-taskbar-dock .deskible-taskbar-dock-tasks .deskible-task > .icon {
+	background-color: transparent !important;
+}
+/* Taskbar End */
+
+/* Menu Start */
+#deskible-menus {
+	position: absolute;
+}
+
+.deskible-startmenu {
+	position: absolute;
+	width: 320px;
+	min-height: 300px;
+	z-index: 16777270;
+}
+
+.deskible-startmenu.deskible-startmenu-top,
+.deskible-startmenu.deskible-startmenu-bottom {
+	margin-left: 8px;
+}
+
+.deskible-startmenu-header {
+	overflow: hidden;
+	position: absolute;
+	right: auto;
+	left: 0px;
+	top: 0px;
+	width: 318px;
+	height: 35px;
+	white-space: nowrap;
+}
+
+.deskible-startmenu-header div {
+	display: inline;
+}
+
+.deskible-startmenu-menu {
+	margin-top: 35px;
+	width: 198px;
+	min-height: 262px;
+	left: 0px;
+	top: 36px;
+}
+
+.deskible-startmenu-toolbar {
+	overflow: hidden;
+	overflow-y: auto;
+	position: absolute;
+	width: 120px;
+	right: auto;
+	left: 198px;
+	top: 36px;
+	min-height: 262px;
+}
+
+.deskible-startmenu-menu > ul {
+	width: 100%;
+	height: 100%;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.deskible-startmenu-menu > ul > li {
+	position: relative;
+	white-space: nowrap;
+	cursor: pointer;
+}
+
+.deskible-startmenu-menu > ul > li > span {
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.deskible-startmenu-menu > ul > li > i.caret.right {
+	/* float: right; */
+	margin: 0;
+}
+
+.deskible-startmenu-menu > ul > li > ul {
+	visibility: hidden;
+	position: absolute;
+	left: 100%;
+	top: 0;
+	z-index: 16777270;
+	overflow: hidden;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	height: auto;
+}
+
+.deskible-startmenu-menu > ul > li:hover > ul {
+	visibility: visible;
+}
+
+.deskible-menu.deskible-hidden {
+	visibility: hidden !important;
+}
+/* Menu End */
+
+/* Windows Start */
+#deskible-windows {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+.deskible-windows-desktop {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+.deskible-window {
+	position: absolute;
+}
+
+.deskible-window-handle {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+.deskible-window-handle > div {
+	display: inline-block;
+}
+
+.deskible-window.deskible-dragable .deskible-window-handle {
+	cursor: move;
+}
+
+.deskible-window-controls {
+	float: right;
+}
+
+.deskible-window-pane {
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.deskible-window-content {
+	overflow: auto;
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
+}
+/* Windows End */
+
+/* Date and Time Start */
+#deskible-clock {
+	position: relative;
+	list-style: none;
+}
+
+#deskible-sec, #deskible-min, #deskible-hour {
+	position: absolute;
+}
+
+#deskible-sec {
+	z-index: 3;
+}
+   
+#deskible-min {
+	z-index: 2;
+}
+   
+#deskible-hour {
+	z-index: 1;
+}
+/* Date and Time End */
+
+/* Contextual Menus Start */
+.deskible-contextualmenu {
+	position: absolute;
+	z-index: 16777271;
+}
+
+.deskible-contextualmenu ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+/* Contextual Menus End */
+
+/* Tabs Start */
+.deskible-window-tabs {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+.deskible-window-tabs ul {
+	overflow: hidden;
+	width: 100%;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.deskible-window-tabs li {
+	cursor: pointer;
+	display: inline-block;
+}
+
+.deskible-window-tabs li.deskible-tab-active {
+	cursor: default;
+}
+/* Tabs End */
+
+/* colorPicker Start */
+.deskible-colorSelector {
+	position: relative;
+	width: 36px;
+	height: 36px;
+	background: url(../../plugins/colorpicker/images/select.png);
+}
+
+.deskible-colorSelector div {
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 30px;
+	height: 30px;
+	background: url(../../plugins/colorpicker/images/select.png) center;
+}
+
+.colorpicker {
+	z-index: 16777270;
+}
+/* colorPicker End */
+
+/* imagePicker Start */
+.deskible-imagePicker {
+	overflow: auto;
+	white-space: nowrap;
+}
+
+.deskible-imagePicker div {
+	display: inline-block;
+}
+/* imagePicker End */
