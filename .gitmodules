@@ -1,0 +1,9 @@
+[submodule "plugins/animate.css"]
+	path = plugins/animate.css
+	url = https://github.com/daneden/animate.css.git
+[submodule "plugins/jsonfn"]
+	path = plugins/jsonfn
+	url = https://github.com/vkiryukhin/jsonfn.git
+[submodule "plugins/semantic-ui"]
+	path = plugins/semantic-ui
+	url = https://github.com/Semantic-Org/Semantic-UI.git
