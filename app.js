@@ -80,10 +80,10 @@ $(function() {
 				label: 'Video Window',
 				options: {
 					tabs: false,
-					resizable: false,
+					overflow: 'hidden',
 					size: {
-						width: 660,
-						heighti: 410
+						width: 650,
+						height: 490
 					},
 					content: {
 						url: 'apps/examples/video.html'
@@ -96,7 +96,10 @@ $(function() {
 			label: 'About',
 			options: {
 				tabs: false,
-				resizable: false,
+				size: {
+					width: 750,
+					height: 500
+				},
 				content: {
 					url: 'apps/about/index.html',
 				}
