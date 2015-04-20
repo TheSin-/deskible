@@ -161,8 +161,10 @@
 							break;
 						}
 					}
-			
-					$('#task-' + windows[wid].id).addClass('active');
+
+					if ($('.deskible-taskbar-inner').length > 0) {
+						$('#task-' + windows[wid].id).addClass('active');
+					}
 				}
 			}
 
