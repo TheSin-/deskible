@@ -4,3 +4,14 @@ Deskible is a web window manager in jQuery, which helps developers to create and
 The whole window framework uses jQuery making it light, fast and versatile. All content is loaded using ajax on the fly, thus allow greater control to the developer.  Server side language, data (databases), and content are not built by the module.  It's basically a theme for your website. The added benefit is that your website/app is no longer bound to one page, you can have multiple pages open and running at one time and share data between them. Managing these windows is the role of the window manager. It has to keep track of which window the user is currently interested in, allow the user to change windows and create or destroy windows. It also controls the way the windows look, their shape and control features.
 
 Having these "WEB-windows" inside the same browser window, gives the user a more familiar and comfortable experience. 
+
+# Todo
+* Update example page and add all documentation to it
+* Add 'Left' and 'Right' to taskbar locations
+* Add method to add to startmenu button bar
+* Add call to add a tab (which can be removable)
+* Test tab and task scrolling (arrows added but no code yet)
+* Add resize bind and function (if user resizes window to keep things flowing)
+* Bind drag to the desktop container (Allow off the desktop but not fully)
+* Bind resize to the desktop container (Shrink on resize)
+* Maybe add a font section to the settings window (just an idea at this point)
