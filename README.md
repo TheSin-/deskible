@@ -15,3 +15,4 @@ Having these "WEB-windows" inside the same browser window, gives the user a more
 * Bind drag to the desktop container (Allow off the desktop but not fully)
 * Bind resize to the desktop container (Shrink on resize)
 * Maybe add a font section to the settings window (just an idea at this point)
+* Add window tiling
