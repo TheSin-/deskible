@@ -284,7 +284,6 @@
 				}
 
 				var opts =  {
-					'type': 'settings',
 					'resizable': true,
 					'size': {
 						'width': 500,
@@ -436,7 +435,6 @@
 						$('.deskible-viewport').trigger('closeall');
 
 						di.makeWindow('syspassword', {
-							'type': 'settings',
 							'resizable': false,
 							'tabs': false,
 							'title': 'Change Password',
@@ -497,10 +495,22 @@
 							}).append($('<i/>', {
 								'class': 'icon ' + vv.icon
 							})).append($('<span/>').text(vv.label)));
+
+							$('#deskible-startmenu-' + menuid + '-' + subid).on('click', function(e) {
+								var opts = vv.options;
+								opts.title = vv.label;
+								opts.icon = vv.icon;
+								di.makeWindow(vv.id, opts);
+							});
 						});
 					} else {
 						$('#deskible-startmenu-' + menuid).addClass('deskible-link');
-						$('#deskible-startmenu-' + menuid).attr('data-url', v.url);
+						$('#deskible-startmenu-' + menuid).on('click', function(e) {
+							var opts = v.options;
+							opts.title = v.label;
+							opts.icon = v.icon;
+							di.makeWindow(v.id, opts);
+						});
 					}
 				});
 
@@ -534,8 +544,6 @@
 						setTimeout(function() {
 							$('.deskible-menu-sub').removeClass('deskible-hidden');
 						}, 1000);
-
-						//alert('load ' + $(this).attr('data-url'));
 					});
 
 					// Make sure everything is moved before
@@ -1711,7 +1719,7 @@
 				}
 
 				var defaults = {
-					'type': 'app',
+					'type': 'window',
 					'handle': true,
 					'resizable': true,
 					'dragable': true,
