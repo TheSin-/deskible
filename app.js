@@ -18,177 +18,89 @@ $(function() {
 		],
 		changePassURL: 'changepass.json',
 		startMenu: [{
-			icon: 'world',
-			label: 'Realms and Providers',
+			icon: 'book',
+			label: 'Documentation',
 			sub: [{
-				icon: 'privacy',
-				label: 'Access Providers',
-				url: ''
+				icon: 'wrench',
+				id: 'docu-setup',
+				label: 'Setup and Layout',
+				options: {
+					tabs: false,
+					content: {
+						url: 'apps/documentation/setup.html'
+					}
+				}
 			}, {
-				icon: 'world',
-				label: 'Realms',
-				url: ''
+				icon: 'cubes',
+				id: 'docu-api',
+				label: 'API',
+				options: {
+					tabs: false,
+					content: {
+						url: 'apps/documentation/api.html'
+					}
+				}
+			}, {
+				icon: 'external',
+				id: 'docu-plugins',
+				label: 'External Projects',
+				options: {
+					tabs: false,
+					content: {
+						url: 'apps/documentation/plugins.html'
+					}
+				}
 			}]
 		}, {
-			icon: 'life ring',
-			label: 'NAS Devices',
+			icon: 'idea',
+			label: 'Examples',
 			sub: [{
-				icon: 'life ring',
-				label: 'NAS Devices',
-				url: ''
-			}, {
-				icon: 'tags',
-				label: 'NAS Device tags',
-				url: ''
-			}]
-		}, {
-			icon: 'users',
-			label: 'Profiles',
-			sub: [{
-				icon: 'user',
-				label: 'Profile Components',
-				url: ''
-			}, {
-				icon: 'users',
-				label: 'Profiles',
-				url: ''
-			}]
-		}, {
-			icon: 'configure',
-			label: 'Tools',
-			sub: [{
-				icon: 'heartbeat',
-				label: 'Activity Monitor',
-				url: ''
-			}, {
-				icon: 'lightning',
-				label: 'RADIUS Client',
-				url: ''
-			}, {
 				icon: 'file text outline',
-				label: 'Logfile viewer',
-				url: ''
+				id: 'example-text',
+				label: 'Text Window',
+				options: {
+					tabs: false,
+					content: {
+						url: 'apps/examples/text.html'
+					}
+				}
 			}, {
-				icon: 'bug',
-				label: 'Debug output',
-				url: ''
+				icon: 'grid layout',
+				id: 'example-grid',
+				label: 'Grid Window',
+				options: {
+					tabs: false,
+					content: {
+						url: 'apps/examples/grid.html'
+					}
+				}
 			}, {
-				icon: 'translate',
-				label: 'Translation manager',
-				url: ''
-			}, {
-				icon: 'privacy',
-				label: 'Rights manager',
-				url: ''
+				icon: 'film',
+				id: 'example-video',
+				label: 'Video Window',
+				options: {
+					tabs: false,
+					resizable: false,
+					size: {
+						width: 660,
+						heighti: 410
+					},
+					content: {
+						url: 'apps/examples/video.html'
+					}
+				}
 			}]
 		}, {
-			icon: 'sun',
-			label: 'Finances',
-			sub: [{
-				icon: 'tags',
-				label: 'Payment Plans',
-				url: ''
-			}, {
-				icon: 'shop',
-				label: 'Paypal',
-				url: ''
-			}, {
-				icon: 'shop',
-				label: 'PayU',
-				url: ''
-			}, {
-				icon: 'shop',
-				label: 'Authorize.Net',
-				url: ''
-			}, {
-				icon: 'shop',
-				label: 'MyGate',
-				url: ''
-			}, {
-				icon: 'shop',
-				label: 'Premium SMS',
-				url: ''
-			}]
-		}, {
-			icon: 'user',
-			label: 'Permanent Users',
-			sub: [{
-				icon: 'user',
-				label: 'Permanent Users',
-				url: ''
-			}, {
-				icon: 'tablet',
-				label: 'BYOD Manager',
-				url: ''
-			}, {
-				icon: 'coffee',
-				label: 'Top-ups',
-				url: ''
-			}]
-		}, {
-			icon: 'lock',
-			label: 'Dynamic Firewalls',
-			sub: [{
-				icon: 'unlock alternate',
-				label: 'Dynamic Firewall Components',
-				url: ''
-			}, {
-				icon: 'lock',
-				label: 'Dynamic Firewalls',
-				url: ''
-			}]
-		}, {
-			icon: 'ticket',
-			label: 'Vouchers',
-			url: ''
-		}, {
-			icon: 'ticket',
-			label: 'Vouchers 2',
-			url: ''
-		}, {
-			icon: 'share alternate',
-			label: 'MESHdesk',
-			url: ''
-		}, {
-			icon: 'share alternate',
-			label: 'MESHdesk 2',
-			url: ''
-		}, {
-			icon: 'sun',
-			label: 'Finances',
-			sub: [{
-				icon: 'tags',
-				label: 'Payment Plans',
-				url: ''
-			}, {
-				icon: 'shop',
-				label: 'Paypal',
-				url: ''
-			}, {
-				icon: 'shop',
-				label: 'PayU',
-				url: ''
-			}, {
-				icon: 'shop',
-				label: 'Authorize.Net',
-				url: ''
-			}, {
-				icon: 'shop',
-				label: 'MyGate',
-				url: ''
-			}, {
-				icon: 'shop',
-				label: 'Premium SMS',
-				url: ''
-			}]
-		}, {
-			icon: 'qrcode',
-			label: 'Dynamic login pages',
-			url: ''
-		}, {
-			icon: 'qrcode',
-			label: 'Dynamic login pages 2',
-			url: ''
+			icon: 'announcement',
+			id: 'about',
+			label: 'About',
+			options: {
+				tabs: false,
+				resizable: false,
+				content: {
+					url: 'apps/about/index.html',
+				}
+			}
 		}]
 	});
 });
