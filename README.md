@@ -20,3 +20,4 @@ Having these "WEB-windows" inside the same browser window gives the user a more 
 * Bind resize to the desktop container (Shrink on resize)
 * Maybe add a font section to the settings window (just an idea at this point)
 * Add window tiling
+* Add overlay over window when resizing so things liek iframe inside won't break mousemove
