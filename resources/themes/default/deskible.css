@@ -37,9 +37,9 @@
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 	border: 3px solid transparent;
-	-moz-box-shadow: #888 0 0 6px;
-	-webkit-box-shadow: #888 0 0 6px;
-	box-shadow: #888 0 0 6px;
+	-moz-box-shadow: #333 0 0 6px;
+	-webkit-box-shadow: #333 0 0 6px;
+	box-shadow: #333 0 0 6px;
 }
 
 .deskible-notification i {
@@ -180,9 +180,9 @@
 	border-color: #e1e1e1;
 	background-image: none;
 	background-color: white;
-	box-shadow: #888 0 0 6px;
-	-moz-box-shadow: #888 0 0 6px;
-	-webkit-box-shadow: #888 0 0 6px;
+	box-shadow: #333 0 0 6px;
+	-moz-box-shadow: #333 0 0 6px;
+	-webkit-box-shadow: #333 0 0 6px;
 }
 /* Menus Common End */
 
@@ -254,9 +254,9 @@
 	border-radius: 4px;
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
-	box-shadow: #888 0 0 6px;
-	-moz-box-shadow: #888 0 0 6px;
-	-webkit-box-shadow: #888 0 0 6px;
+	box-shadow: #333 0 0 6px;
+	-moz-box-shadow: #333 0 0 6px;
+	-webkit-box-shadow: #333 0 0 6px;
 }
 
 .deskible-window-handle {
