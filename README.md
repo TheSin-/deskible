@@ -1,4 +1,6 @@
 # Deskible
+![alt Deskible Screen Shot](https://raw.gitubusercontent.com/TheSin-/deskible/master/resources/images/logo.png "Screen Shot")
+
 Deskible is a web window manager, in jQuery, which helps developers to create and manage dynamic windows inside their web applications.
 
 The whole window framework uses jQuery making it light, fast and versatile. All content is loaded using ajax on the fly, thus allowing greater control for the developer.  Server side language, data (databases), and content are not built by this module, it's basically a theme for your website. The added benefit is that your website/app is no longer bound to one page; you can have multiple pages open and running at one time and share data between them.
