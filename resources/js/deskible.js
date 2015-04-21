@@ -1766,10 +1766,10 @@
 					'overflow': 'auto',
 					'position': 'center',
 					'size': {
-						'min-width': '210',
-						'min-height': '210',
-						'max-width': '10000',
-						'max-height': '10000'
+						'min-width': 210,
+						'min-height': 210,
+						'max-width': 10000,
+						'max-height': 10000
 					},
 					'title': 'New Window',
 					'icon': 'block layout',
@@ -1820,11 +1820,6 @@
 				}
 
 				var css = $.extend(true, {}, opts.size);
-				// min and max width and height have to be Int
-				$.each(css, function(style, stylevalue) {
-					css[style] = parseInt(stylevalue);
-				});
-
 				css['z-index'] = zindex;
 				css['visibility'] = 'hidden';
 				var $window = $('<div/>', {
