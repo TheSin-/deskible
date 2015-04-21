@@ -2127,7 +2127,9 @@
 					if (typeof wid === 'undefined') {
 						return w;
 					} else {
-			 			return w[wid];
+						if (typeof w[wid] !== 'undefined') {
+			 				return w[wid];
+						}
 					}
 				} else {
 					if (typeof wid === 'undefined') {
