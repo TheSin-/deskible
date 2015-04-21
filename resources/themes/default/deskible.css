@@ -107,11 +107,13 @@
 .deskible-viewport .deskible-taskbar.deskible-taskbar-top .deskible-taskbar-inner > div,
 .deskible-viewport .deskible-taskbar.deskible-taskbar-bottom .deskible-taskbar-inner > div {
 	height: 30px;
+	width: 1px;
 }
 
 .deskible-viewport .deskible-taskbar.deskible-taskbar-left .deskible-taskbar-inner > div,
 .deskible-viewport .deskible-taskbar.deskible-taskbar-right .deskible-taskbar-inner > div {
 	width: 80px;
+	height: 1px;
 }
 
 .deskible-viewport .deskible-taskbar.deskible-taskbar-top .deskible-taskbar-inner .deskible-taskbar-divider,
