@@ -60,6 +60,9 @@ $(function() {
 				label: 'Text Window',
 				options: {
 					tabs: false,
+					size: {
+						width: '50%'
+					},
 					content: {
 						url: 'apps/examples/text.html'
 					}
@@ -69,10 +72,18 @@ $(function() {
 				id: 'example-grid',
 				label: 'Grid Window',
 				options: {
-					tabs: false,
-					content: {
-						url: 'apps/examples/grid.html'
-					}
+					tabs: true,
+					size: {
+						'width': '50%',
+						'height': '50%'
+					},
+					content: [{
+						datatab: {
+							tablabel: 'Data',
+							active: true,
+							url: 'apps/examples/grid.html'
+						}
+					}]
 				}
 			}, {
 				icon: 'film',
