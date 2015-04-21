@@ -126,6 +126,8 @@
 						'left': left
 					});
 
+					saveWindow(zIndexes[i].$el.attr('data-id'));
+
 					top += space;
 					left += space;
 
@@ -153,12 +155,17 @@
 				$('.deskible-task').removeClass('active');
 				if ($('.deskible-window').not('.deskible-window-minimized').length > 0) {
 					var order = layerOrder(windows, 'layer');
+					if (order.length == 0) {
+						return;
+					}
 					var wid = 0;
 
-					for(var i = 0; i < order.length; i++) {
-						if (!$('#window-' + order[i].id).hasClass('deskible-window-minimized')) {
-							wid = order[i].wid;
-							break;
+					for(var i = order.length - 1; i >= 0; i--) {
+						if (typeof order[i] === 'object') {
+							if (!$('#window-' + order[i].id).hasClass('deskible-window-minimized')) {
+								wid = order[i].wid;
+								break;
+							}
 						}
 					}
 
@@ -772,6 +779,7 @@
 				var $notifications = $('#deskible-notifications');
 				var $taskbar = $('.deskible-taskbar');
 				var $startmenu = $('.deskible-startmenu');
+				var $dock = $taskbar.find('.deskible-taskbar-dock');
 
 				$.each($('.deskible-window-infopane'), function(k, pane) {
 					var id = $(pane).attr('id').replace(/^window-/, '');
@@ -814,6 +822,9 @@
 					'right': 'auto'
 				});
 
+				$dock.css('width', '');
+				$dock.css('height', '');
+
 				$('.deskible-taskbar-dock-scroll-prev i').removeClass('left');
 				$('.deskible-taskbar-dock-scroll-prev i').removeClass('up');
 				$('.deskible-taskbar-dock-scroll-next i').removeClass('right');
@@ -844,6 +855,7 @@
 							'bottom': th,
 							'left': 0
 						});
+						$dock.css('width', 'auto');
 					} else if (snap == 'top') {
 						di.config('minAni', 'fadeOutUpBig');
 						di.config('resAni', 'fadeInDownBig');
@@ -866,6 +878,7 @@
 							'top': th,
 							'left': 0
 						});
+						$dock.css('width', 'auto');
 					}
 				}, 100);
 			};
@@ -882,9 +895,19 @@
 				})))).append($('<div/>', {
 					'class': 'deskible-taskbar-divider'
 				})).append($('<div/>', {
-					'class': 'deskible-taskbar-dock'
+					'class': 'deskible-taskbar-dock',
+					'css': {
+						'white-space': 'nowrap'
+					}
 				}).append($('<div/>', {
-					'class': 'deskible-taskbar-dock-scroll-prev'
+					'class': 'deskible-taskbar-dock-scroll deskible-taskbar-dock-scroll-prev'
+				}).append($('<i/>', {
+					'class': 'icon chevron disabled',
+					'css': {
+						'visibility': 'hidden'
+					}
+				}))).append($('<div/>', {
+					'class': 'deskible-taskbar-dock-scroll deskible-taskbar-dock-scroll-next'
 				}).append($('<i/>', {
 					'class': 'icon chevron disabled',
 					'css': {
@@ -894,18 +917,10 @@
 					'class': 'deskible-taskbar-dock-tasks',
 					'css': {
 						'position': 'relative',
-						'width': '100%',
 						'overflow': 'hidden',
 						'white-space': 'nowrap'
 					}
-				})).append($('<div/>', {
-					'class': 'deskible-taskbar-dock-scroll-next'
-				}).append($('<i/>', {
-					'class': 'icon chevron disabled',
-					'css': {
-						'visibility': 'hidden'
-					}
-				})))).append($('<div/>', {
+				}))).append($('<div/>', {
 					'class': 'deskible-taskbar-divider'
 				})).append($('<div/>', {
 					'class': 'deskible-taskbar-tasks'
@@ -916,6 +931,25 @@
 				startTime();
 				buildStartMenu();
 				di.setTaskbarSnap(config.taskbarSnap);
+
+				$(window).resize(function() {
+					var maxwidth = $(window).width();
+					var $taskbar = $('.deskible-taskbar');
+					//var maxwidth = $taskbar.find('.deskible-taskbar-inner').outerWidth();
+
+					var dockwidth = maxwidth - $taskbar.find('.deskible-taskbar-startbutton').outerWidth(true) - $taskbar.find('.deskible-taskbar-tasks').outerWidth(true) - (2 * $taskbar.find('.deskible-taskbar-divider').outerWidth(true));
+
+					$taskbar.find('.deskible-taskbar-dock').css({
+						'width': dockwidth,
+						'max-width': dockwidth
+					});
+
+					if (($taskbar.find('.deskible-taskbar-dock-tasks').outerWidth(true) + $taskbar.find('.deskible-taskbar-dock-scroll-next').outerWidth(true)) > dockwidth) {
+						$taskbar.find('.deskible-taskbar-dock-scroll i').css('visibility', 'visible');
+					} else {
+						$taskbar.find('.deskible-taskbar-dock-scroll i').css('visibility', 'hidden');
+					}
+				});
 
 				$('body').on('click keyup', function(e) {
 					// only listen for esc key
@@ -1578,15 +1612,14 @@
 
 			function setTheme(theme) {
 				if ($('head').find('#deskibleTheme').length == 0) {
-					$('head').append($('<link/>', {
+					$('head').append($('<style/>', {
 						'id': 'deskibleTheme',
-						'rel': 'stylesheet',
-						'type': 'text/css',
-						'href': 'resources/themes/' + theme + '/deskible.css'
 					}));
-				} else {
-					$('head').find('#deskibleTheme').attr('href', 'resources/themes/' + theme + '/deskible.css');
 				}
+
+				$.get('resources/themes/' + theme + '/deskible.css', function(data) {
+					$('#deskibleTheme').text(data);
+				}, 'text');
 			}
 
 			function reorderWindows(wid) {
@@ -1619,7 +1652,7 @@
 				var zindex = (layer * 10000) + 9000 + wid;
 				$('#window-' + w[wid].id).css('z-index', zindex);
 				di.windows(wid, layer, 'layer');
-				di.windows(v.wid, zindex, 'zindex');
+				di.windows(wid, zindex, 'zindex');
 				$('.deskible-task').removeClass('active');
 				$('#task-' + w[wid].id).addClass('active');
 			}
@@ -1660,6 +1693,9 @@
 					});
 
 					setActiveTask();
+					setTimeout(function() {
+						$(window).resize();
+					}, 100);
 
 					// Make sure we only start once
 					di.started = true;
@@ -1737,7 +1773,8 @@
 					},
 					'title': 'New Window',
 					'icon': 'block layout',
-					'zindex': 0,
+					'zindex': false,
+					'layer': false,
 					'minimized': false,
 					'maximized': false
 				};
@@ -1751,6 +1788,7 @@
 				opts.id = id;
 
 				var zindex = opts.zindex;
+				var layer = opts.layer;
 				var wid = -1;
 				if (opts.type != 'infopane') {
 					wid = 0;
@@ -1761,9 +1799,13 @@
 					opts.wid = wid;
 					di.windows(wid, opts);
 
-					var wcount = $('.deskible-window').length + 1;
-					di.windows(wid, wcount, 'layer');
-					zindex = (wcount * 10000) + 9000 + wid;
+					if (layer === false) {
+						layer = $('.deskible-window').length + 1;
+					}
+					di.windows(wid, layer, 'layer');
+					if (zindex === false) {
+						zindex = (layer * 10000) + 9000 + wid;
+					}
 					di.windows(wid, zindex, 'zindex');
 
 					var $task = $('<div/>', {
@@ -1778,6 +1820,11 @@
 				}
 
 				var css = $.extend(true, {}, opts.size);
+				// min and max width and height have to be Int
+				$.each(css, function(style, stylevalue) {
+					css[style] = parseInt(stylevalue);
+				});
+
 				css['z-index'] = zindex;
 				css['visibility'] = 'hidden';
 				var $window = $('<div/>', {

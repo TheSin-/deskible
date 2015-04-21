@@ -97,33 +97,31 @@ html, body {
 .deskible-viewport .deskible-taskbar.deskible-taskbar-bottom .deskible-taskbar-inner > div {
 	display: table-cell;
 	vertical-align: top;
+	width: 1px;
 }
 
-.deskible-viewport .deskible-taskbar.deskible-taskbar-top .deskible-taskbar-inner > div div,
+.deskible-viewport .deskible-taskbar.deskible-taskbar-top .deskible-taskbar-inner > div > div,
 .deskible-viewport .deskible-taskbar.deskible-taskbar-bottom .deskible-taskbar-inner > div div {
 	display: inline-block;
 }
 
 .deskible-viewport .deskible-taskbar.deskible-taskbar-top .deskible-taskbar-inner .deskible-taskbar-dock-tasks,
 .deskible-viewport .deskible-taskbar.deskible-taskbar-bottom .deskible-taskbar-inner .deskible-taskbar-dock-tasks {
-	width: 100%;
-	padding: 0 2.25em;
+	width: auto;
 	overflow: hidden;
 	white-space: nowrap;
 }
 
-.deskible-viewport .deskible-taskbar.deskible-taskbar-top .deskible-taskbar-inner .deskible-taskbar-dock-scroll-prev,
-.deskible-viewport .deskible-taskbar.deskible-taskbar-bottom .deskible-taskbar-inner .deskible-taskbar-dock-scroll-prev {
-	position: absolute;
-	left: 4px;
-	top: 8px;
+.deskible-viewport .deskible-taskbar.deskible-taskbar-top .deskible-taskbar-inner .deskible-taskbar-dock-scroll,
+.deskible-viewport .deskible-taskbar.deskible-taskbar-bottom .deskible-taskbar-inner .deskible-taskbar-dock-scroll {
+	height: 100%;
+	padding: 0 5px;
+	z-index: 1;
 }
 
 .deskible-viewport .deskible-taskbar.deskible-taskbar-top .deskible-taskbar-inner .deskible-taskbar-dock-scroll-next,
 .deskible-viewport .deskible-taskbar.deskible-taskbar-bottom .deskible-taskbar-inner .deskible-taskbar-dock-scroll-next {
-	position: absolute;
-	right: 4px;
-	top: 8px;
+	float: right;
 }
 
 .deskible-viewport .deskible-taskbar.deskible-taskbar-left .deskible-taskbar-inner div,

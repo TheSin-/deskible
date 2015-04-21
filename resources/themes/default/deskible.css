@@ -78,6 +78,14 @@
 	border-style: solid;
 }
 
+.deskible-viewport .deskible-taskbar div {
+	background-color: white;
+}
+
+.deskible-viewport .deskible-taskbar .deskible-task {
+	background-color: #c0c0c0;
+}
+
 .deskible-viewport .deskible-taskbar.deskible-taskbar-bottom,
 .deskible-viewport .deskible-taskbar.deskible-taskbar-top {
 	width: 100%;
@@ -107,13 +115,12 @@
 .deskible-viewport .deskible-taskbar.deskible-taskbar-top .deskible-taskbar-inner > div,
 .deskible-viewport .deskible-taskbar.deskible-taskbar-bottom .deskible-taskbar-inner > div {
 	height: 30px;
-	width: 1px;
+	line-height: 30px;
 }
 
 .deskible-viewport .deskible-taskbar.deskible-taskbar-left .deskible-taskbar-inner > div,
 .deskible-viewport .deskible-taskbar.deskible-taskbar-right .deskible-taskbar-inner > div {
 	width: 80px;
-	height: 1px;
 }
 
 .deskible-viewport .deskible-taskbar.deskible-taskbar-top .deskible-taskbar-inner .deskible-taskbar-divider,
@@ -154,7 +161,7 @@
 	min-width: 80px;
 	width: 80px;
 	margin: 0;
-	padding: 8px 25px;
+	padding: 0 25px;
 	right: 0;
 	top: 0;
 	white-space: nowrap;
