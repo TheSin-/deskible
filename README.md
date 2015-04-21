@@ -1,5 +1,5 @@
 # Deskible
-![alt Deskible Screen Shot](https://raw.gitubusercontent.com/TheSin-/deskible/master/resources/images/logo.png "Screen Shot")
+![alt Deskible Screen Shot](https://rawgit.com/TheSin-/deskible/master/resources/images/logo.png "Screen Shot")
 
 Deskible is a web window manager, in jQuery, which helps developers to create and manage dynamic windows inside their web applications.
 
