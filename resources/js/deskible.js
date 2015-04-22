@@ -880,6 +880,7 @@
 							'left': 0
 						});
 						$dock.css('width', 'auto');
+						addScrolling('.deskible-taskbar-dock-tasks', '.deskible-taskbar-dock-tasks-container', '.deskible-taskbar-dock-scroll-prev', '.deskible-taskbar-dock-scroll-next');
 					}
 				}, 100);
 			};
@@ -1105,6 +1106,7 @@
 				});
 			}
 
+			// FIXME need a way to destroy these without removing the elements.
 			function addScrolling(ele, content, buttonL, buttonR) {
 				var $ele = $(ele),
 				    $buttonL = $(buttonL),
