@@ -1612,14 +1612,13 @@
 
 			function setTheme(theme) {
 				if ($('head').find('#deskibleTheme').length == 0) {
-					$('head').append($('<style/>', {
+					$('head').append($('<link/>', {
 						'id': 'deskibleTheme',
+						'rel': 'stylesheet',
 					}));
 				}
 
-				$.get('resources/themes/' + theme + '/deskible.css', function(data) {
-					$('#deskibleTheme').text(data);
-				}, 'text');
+				$('#deskibleTheme').attr('href', 'resources/themes/' + theme + '/deskible.css');
 			}
 
 			function reorderWindows(wid) {
