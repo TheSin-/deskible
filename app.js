@@ -82,7 +82,21 @@ $(function() {
 						datatab: {
 							tablabel: 'Data',
 							active: true,
-							url: 'apps/examples/grid.html'
+							url: 'apps/examples/grid.html',
+							loads: function(c, $w, di) {
+								var $rows = $w.find('.deskible-tab-content[data-tid=datatab] table tr');
+								$rows.find('td:last-child div.button').on('click', function() {
+									var $row = $(this).closest('tr');
+									var id = $w.attr('data-id');
+									var tid = $row.find('td:first-child').text();
+									var content = {
+										tablabel: tid,
+										url: 'apps/examples/subgrid.html'
+									};
+									di.buildContent(id, tid, content, true);
+									$w.find('.deskible-window-tabs li[data-tid=' + tid + ']').trigger('click');
+								});
+							}
 						}
 					}]
 				}
