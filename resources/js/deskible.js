@@ -856,6 +856,7 @@
 							'left': 0
 						});
 						$dock.css('width', 'auto');
+						addScrolling('.deskible-taskbar-dock-tasks', '.deskible-taskbar-dock-tasks-container', '.deskible-taskbar-dock-scroll-prev', '.deskible-taskbar-dock-scroll-next');
 					} else if (snap == 'top') {
 						di.config('minAni', 'fadeOutUpBig');
 						di.config('resAni', 'fadeInDownBig');
@@ -900,19 +901,12 @@
 						'white-space': 'nowrap'
 					}
 				}).append($('<div/>', {
-					'class': 'deskible-taskbar-dock-scroll deskible-taskbar-dock-scroll-prev'
-				}).append($('<i/>', {
-					'class': 'icon chevron disabled',
+					'class': 'deskible-taskbar-dock-scroll deskible-taskbar-dock-scroll-prev ui button icon disabled',
 					'css': {
 						'visibility': 'hidden'
 					}
-				}))).append($('<div/>', {
-					'class': 'deskible-taskbar-dock-scroll deskible-taskbar-dock-scroll-next'
 				}).append($('<i/>', {
-					'class': 'icon chevron disabled',
-					'css': {
-						'visibility': 'hidden'
-					}
+					'class': 'icon chevron'
 				}))).append($('<div/>', {
 					'class': 'deskible-taskbar-dock-tasks',
 					'css': {
@@ -920,7 +914,16 @@
 						'overflow': 'hidden',
 						'white-space': 'nowrap'
 					}
+				}).append($('<div/>', {
+					'class': 'deskible-taskbar-dock-tasks-container'
 				}))).append($('<div/>', {
+					'class': 'deskible-taskbar-dock-scroll deskible-taskbar-dock-scroll-next ui button icon',
+					'css': {
+						'visibility': 'hidden'
+					}
+				}).append($('<i/>', {
+					'class': 'icon chevron'
+				})))).append($('<div/>', {
 					'class': 'deskible-taskbar-divider'
 				})).append($('<div/>', {
 					'class': 'deskible-taskbar-tasks'
@@ -935,20 +938,22 @@
 				$(window).resize(function() {
 					var maxwidth = $(window).width();
 					var $taskbar = $('.deskible-taskbar');
-					//var maxwidth = $taskbar.find('.deskible-taskbar-inner').outerWidth();
+					var $taskbarcontainer = $taskbar.find('.deskible-taskbar-dock-tasks');
 
-					var dockwidth = maxwidth - $taskbar.find('.deskible-taskbar-startbutton').outerWidth(true) - $taskbar.find('.deskible-taskbar-tasks').outerWidth(true) - (2 * $taskbar.find('.deskible-taskbar-divider').outerWidth(true));
+					var dockwidth = maxwidth - $taskbar.find('.deskible-taskbar-startbutton').outerWidth(true) - $taskbar.find('.deskible-taskbar-tasks').outerWidth(true) - (2 * $taskbar.find('.deskible-taskbar-divider').outerWidth(true)) - $taskbar.find('.deskible-taskbar-dock-scroll-next').outerWidth(true) - $taskbar.find('.deskible-taskbar-dock-scroll-prev').outerWidth(true);
 
-					$taskbar.find('.deskible-taskbar-dock').css({
+					$taskbarcontainer.css({
 						'width': dockwidth,
 						'max-width': dockwidth
 					});
 
-					if (($taskbar.find('.deskible-taskbar-dock-tasks').outerWidth(true) + $taskbar.find('.deskible-taskbar-dock-scroll-next').outerWidth(true)) > dockwidth) {
-						$taskbar.find('.deskible-taskbar-dock-scroll i').css('visibility', 'visible');
+					if ($taskbar.find('.deskible-taskbar-dock-tasks-container').outerWidth() > dockwidth) {
+						$taskbar.find('.deskible-taskbar-dock-scroll').css('visibility', 'visible');
 					} else {
-						$taskbar.find('.deskible-taskbar-dock-scroll i').css('visibility', 'hidden');
+						$taskbar.find('.deskible-taskbar-dock-scroll').css('visibility', 'hidden');
 					}
+
+					scrollingAnimation($taskbarcontainer, $taskbarcontainer);
 				});
 
 				$('body').on('click keyup', function(e) {
@@ -1098,6 +1103,82 @@
 					// FIXME
 					alert('contextual menu popup');
 				});
+			}
+
+			function addScrolling(ele, content, buttonL, buttonR) {
+				var $ele = $(ele),
+				    $buttonL = $(buttonL),
+				    $buttonR = $(buttonR),
+				    buttons = buttonL + ', ' + buttonR;
+				$ele.data('buttonL', buttonL);
+				$ele.data('buttonR', buttonR);
+				$ele.data('content', content);
+				$buttonL.data('ele', ele);
+				$buttonR.data('ele', ele);
+
+				// event handling for buttons "left", "right"
+				$(buttons).on('mousedown', function (e) {
+					var $ele = $($(this).data('ele'));
+					$ele.data('scroll', true);
+					scrollingAnimation($ele, $(this));
+				}).on('mouseup mouseout', function (e) {
+					var $ele = $($(this).data('ele'));
+					$ele.data('scroll', false).stop();
+				});
+
+				// event handling for mouse drag
+				$ele.mousedown(function (e) {
+					$(this).data('down', true)
+						.data('x', e.clientX)
+						.data('scrollLeft', this.scrollLeft);
+					return false;
+				}).mouseup(function (e) {
+					$(this).data('down', false);
+				}).mousemove(function (e) {
+					if ($(this).data('down')) {
+						this.scrollLeft = $(this).data('scrollLeft') + $(this).data('x') - e.clientX;
+						scrollingAnimation($(this), $(this));
+					}
+				}).css({
+					'overflow': 'hidden'
+				});
+			}
+
+			function scrollingAnimation($ele, $btn) {
+				var aniTime = 10,
+				    step = 5;
+
+				var scrollLeft = 0;
+				if (typeof $ele[0].scrollLeft !== 'undefined') {
+					scrollLeft = $ele[0].scrollLeft;
+				}
+
+				if (scrollLeft > 0) {
+					$($ele.data('buttonL')).removeClass('disabled');
+				} else {
+					$($ele.data('buttonL')).addClass('disabled');
+				}
+				if ((scrollLeft + $ele.width()) >= $($ele.data('content')).outerWidth()) {
+					$($ele.data('buttonR')).addClass('disabled');
+				} else {
+					$($ele.data('buttonR')).removeClass('disabled');
+				}
+
+				if ($btn.hasClass('disabled')) {
+					return false;
+				}
+
+				var dir = $btn.is($ele.data('buttonR'));
+
+				if ($ele.data('scroll')) {
+					var sign = (dir) ? step : -step;
+					$ele[0].scrollLeft += sign;
+					setTimeout(function () {
+						scrollingAnimation($ele, $btn)
+					}, aniTime);
+				}
+
+				return false;
 			}
 
 			function updateClock() {
@@ -1723,7 +1804,7 @@
 					setActiveTask();
 					setTimeout(function() {
 						$(window).resize();
-					}, 100);
+					}, 1000);
 
 					// Make sure we only start once
 					di.started = true;
@@ -2070,7 +2151,7 @@
 				$('.deskible-windows-desktop').append($window);
 				if (opts.type != 'infopane') {
 					$('.deskible-task').removeClass('active');
-					$('.deskible-taskbar-dock-tasks').append($task);
+					$('.deskible-taskbar-dock-tasks-container').append($task);
 				}
 
 				if (typeof opts.content !== 'undefined') {

@@ -156,6 +156,14 @@
 	width: 100%;
 }
 
+.deskible-viewport .deskible-taskbar.deskible-taskbar-top .deskible-taskbar-inner .deskible-taskbar-dock-scroll.disabled,
+.deskible-viewport .deskible-taskbar.deskible-taskbar-bottom .deskible-taskbar-inner .deskible-taskbar-dock-scroll.disabled,
+.deskible-viewport .deskible-taskbar.deskible-taskbar-top .deskible-taskbar-inner .deskible-taskbar-dock-scroll,
+.deskible-viewport .deskible-taskbar.deskible-taskbar-bottom .deskible-taskbar-inner .deskible-taskbar-dock-scroll {
+	padding: 0.5em 0.2em;
+	background-color: white !important;
+}
+
 .deskible-viewport .deskible-taskbar .deskible-taskbar-inner .deskible-taskbar-tasks {
 	border-width: 0;
 	min-width: 80px;
