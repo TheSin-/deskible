@@ -1313,8 +1313,18 @@
 				$('.deskible-contextualmenu').css(css);
 			}
 
-			function buildTab(id, tid, content) {
+			function buildTab(id, tid, content, closable) {
+				if (typeof closable === 'undefined') {
+					closable = false;
+				}
+
 				var $tabs = $('#window-' + id).find('.deskible-window-tabs ul');
+
+				if ($tabs.find('li[data-tid=' + tid + ']').length > 0) {
+					$tabs.find('li[data-tid=' + tid + ']').trigger('click');
+					return;
+				}
+
 				var css = {
 					'data-tid': tid
 				};
@@ -1323,10 +1333,29 @@
 					css['class'] = 'deskible-tab-active';
 				}
 
-				$tabs.append($('<li/>', css).text(content.tablabel));
+				var $tab = $('<li/>', css).text(content.tablabel);
+				if (closable === true) {
+					$tab.append($('<div/>', {
+						'class': 'ui icon button circular mini deskible-tab-close'
+					}).append($('<i/>', {
+						'class': 'icon remove'
+					})));
+				}
+
+				$tabs.append($tab);
+
+				if (closable === true) {
+					$tabs.find('li[data-tid=' + tid + '] .deskible-tab-close').on('click', function() {
+						
+						var $tab = $tabs.find('li[data-tid=' + tid + ']');
+						$tab.prev().trigger('click');
+						$tab.remove();
+						$('#window-' + id).find('.deskible-tab-content[data-tid=' + tid + ']').remove();
+					});
+				}
 			}
 
-			function buildContent(id, tid, content) {
+			di.buildContent = function(id, tid, content, closable) {
 				var $content = $('#window-' + id).find('.deskible-window-content');
 				var $container = false;
 
@@ -1336,7 +1365,7 @@
 						'class': 'deskible-tab-content'
 					}));
 					$container = $content.find('.deskible-tab-content[data-tid=' + tid + ']');
-					buildTab(id, tid, content);
+					buildTab(id, tid, content, closable);
 				}
 
 				$.get(content.url, function(data) {
@@ -1362,7 +1391,7 @@
 				if ($container !== false && content.active !== true) {
 					$container.hide();
 				}
-			}
+			};
 
 			di.imagePicker = function($container, images, selected) {
 				for (var i = 0; i < images.length; i++) {
@@ -2048,11 +2077,11 @@
 					if (opts.tabs) {
 						for (var i = 0; i < opts.content.length; i++) {
 							$.each(opts.content[i], function(tid, content) {
-								buildContent(id, tid, content);
+								di.buildContent(id, tid, content);
 							});
 						};
 
-						$window.find('.deskible-window-tabs li').on('click', function(e) {
+						$window.find('.deskible-window-tabs').on('click', 'li', function(e) {
 							var $this = $(this);
 							var $content = $this.closest('.deskible-window-pane').find('.deskible-window-content');
 							var tid = $this.attr('data-tid');
@@ -2063,7 +2092,7 @@
 							$content.find('.deskible-tab-content[data-tid=' + tid + ']').show();
 						});
 					} else {
-						buildContent(id, false, opts.content);
+						di.buildContent(id, false, opts.content);
 					}
 				}
 

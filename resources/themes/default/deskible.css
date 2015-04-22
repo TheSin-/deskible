@@ -590,6 +590,20 @@ td.datepickerSpecial.datepickerSelected a {
 	background-color: #add2ed;
 	color: #3b83c0;
 }
+
+.deskible-window-tabs li .deskible-tab-close {
+	position: relative;
+	left: 7px;
+	font-size: 0.8rem !important;
+	padding: 0.25em !important;
+	background-color: #73aad6;
+	color: #add2ed;
+}
+
+.deskible-window-tabs li .deskible-tab-close:hover {
+	background-color: #3b83c0;
+	color: #add2ed;
+}
 /* Tabs End */
 
 /* Forms Start */

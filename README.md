@@ -13,7 +13,6 @@ Having these "WEB-windows" inside the same browser window gives the user a more 
 * Update example page and add all documentation to it
 * Add 'Left' and 'Right' to taskbar locations
 * Add method to add to startmenu button bar
-* Add call to add a tab (which can be removable)
 * Test tab and task scrolling (arrows added but no code yet)
 * Add resize bind and function (if user resizes window to keep things flowing)
 * Bind drag to the desktop container (Allow off the desktop but not fully)
