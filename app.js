@@ -61,7 +61,8 @@ $(function() {
 				options: {
 					tabs: false,
 					size: {
-						width: '50%'
+						width: '50%',
+						'min-height': '75%'
 					},
 					content: {
 						url: 'apps/examples/text.html'
@@ -86,7 +87,7 @@ $(function() {
 					}]
 				}
 			}, {
-				icon: 'film',
+				icon: 'youtube',
 				id: 'example-video',
 				label: 'Video Window',
 				options: {
