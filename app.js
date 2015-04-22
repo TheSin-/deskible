@@ -133,6 +133,23 @@ $(function() {
 						url: 'apps/examples/irc.html'
 					}
 				}
+			}, {
+				icon: 'marker',
+				id: 'example-maps',
+				label: 'Google Maps',
+				options: {
+					tabs: false,
+					overflow: 'hidden',
+					size: {
+						'min-width': 400,
+						'min-height': 300,
+						width: 600,
+						height: 500
+					},
+					content: {
+						url: 'apps/examples/maps.html'
+					}
+				}
 			}]
 		}, {
 			icon: 'announcement',
