@@ -62,6 +62,7 @@ $(function() {
 					tabs: false,
 					size: {
 						width: '50%',
+						height: '75%',
 						'min-height': '75%'
 					},
 					content: {
@@ -113,6 +114,23 @@ $(function() {
 					},
 					content: {
 						url: 'apps/examples/video.html'
+					}
+				}
+			}, {
+				icon: 'comments outline',
+				id: 'example-irc',
+				label: 'IRC Client',
+				options: {
+					tabs: false,
+					overflow: 'hidden',
+					size: {
+						'min-width': 900,
+						'min-height': 650,
+						width: 900,
+						height: 650
+					},
+					content: {
+						url: 'apps/examples/irc.html'
 					}
 				}
 			}]
