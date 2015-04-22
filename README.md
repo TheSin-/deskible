@@ -13,10 +13,10 @@ Having these "WEB-windows" inside the same browser window gives the user a more 
 * Update example page and add all documentation to it
 * Add 'Left' and 'Right' to taskbar locations
 * Add method to add to startmenu button bar
-* Test tab and task scrolling (arrows added but no code yet)
+* Test tab and task scrolling (arrows added but no code yet for tabs)
 * Add resize bind and function (if user resizes window to keep things flowing)
 * Bind drag to the desktop container (Allow off the desktop but not fully)
 * Bind resize to the desktop container (Shrink on resize)
 * Maybe add a font section to the settings window (just an idea at this point)
 * Add window tiling
-* Add overlay over window when resizing so things liek iframe inside won't break mousemove
+* Add overlay over window when resizing/backgrounding so things like iframe inside won't break mousemove and you can't interact with a backgrounded window, but click on it anyplace will bring it forward (this isn't the case with iframes currently)
